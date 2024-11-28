@@ -1,6 +1,6 @@
 
 
-import { ProductCard as ProductCardHook} from './ProductCard';
+import { ProductCard as ProductCardHook } from './ProductCard';
 
 import { ProductButtons } from './ProductButtons';
 import { ProductImage } from './ProductImage';
