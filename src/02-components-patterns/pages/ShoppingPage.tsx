@@ -1,16 +1,9 @@
-// import {
-//     ProductButtons,
-//     ProductCard,
-//     ProductImage,
-//     ProductTitle,
-// } from '../components/ProductCard';
+
 
 import { ProductCard } from "../components";
 import { ProductButtons } from "../components/ProductButtons";
 import { ProductImage } from "../components/ProductImage";
 import { ProductTitle } from "../components/ProductTitle";
-
-// import ProductCard, { ProductButtons, ProductImage, ProductTitle } from "../components";
 
 const product = {
     id: '1',
