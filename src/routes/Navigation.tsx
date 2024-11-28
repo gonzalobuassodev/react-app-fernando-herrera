@@ -1,4 +1,6 @@
-import {
+
+
+  import {
   BrowserRouter,
   Navigate,
   NavLink,
@@ -38,7 +40,7 @@ export const Navigation = () => {
               <Route key={path} path={path} element={<Components />} />
             ))}
 
-            <Route path='/*' element={<Navigate to={routes[0].to} replace />} />
+            {/* <Route path='/*' element={<Navigate to={routes[0].to} replace />} /> */}
           </Routes>
         </div>
       </BrowserRouter>
