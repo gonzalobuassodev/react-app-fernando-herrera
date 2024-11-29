@@ -1,6 +1,6 @@
 
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { OnChangeArgs, Product } from "../interfaces";
 
 interface UseProductArgs {
@@ -14,14 +14,9 @@ interface UseProductArgs {
 export const useProduct = ({ onChange, product, value = 0 }: UseProductArgs) => {
   const [counter, setCounter] = useState(value)
 
-  const isControllerRef = useRef(!!onChange)
 
   const handleMinus = () => {
 
-
-    if(isControllerRef.current) {
-      return onChange!({count: counter - 1, product})
-    }
 
     if (counter === 0) return;
 
@@ -34,10 +29,6 @@ export const useProduct = ({ onChange, product, value = 0 }: UseProductArgs) => 
   }
 
   const handleAdd = () => {
-
-    if (isControllerRef.current) {
-      return onChange!({ count: counter + 1, product })
-    }
 
     const newValue = counter + 1
 
