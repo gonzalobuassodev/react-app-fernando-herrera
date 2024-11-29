@@ -11,7 +11,7 @@
 }
 
 .custom-rounded {
-    border-radius: 20px;\
+    border-radius: 20px;
     padding: 10px;
     width: calc(100% - 20px);
 }
@@ -24,4 +24,10 @@
 .custom-buttons div {
     color: #fff;
     border-color: #fff;
+}
+
+.shopping-card {
+    position: fixed;
+    right: 0px;
+    top: 0px;
 }
