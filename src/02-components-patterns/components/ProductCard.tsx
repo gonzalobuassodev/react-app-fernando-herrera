@@ -1,25 +1,50 @@
-
-import { createContext, CSSProperties, ReactElement } from 'react';
+import { createContext, CSSProperties } from 'react';
 
 import { useProduct } from '../hooks/useProduct';
 import styles from '../styles/styles.module.css';
-import { OnChangeArgs, Product, ProductContextProps } from '../interfaces';
+import {
+    InitialValues,
+    OnChangeArgs,
+    Product,
+    ProductCardHandlers,
+    ProductContextProps,
+} from '../interfaces';
 
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
 export interface Props {
-    children?: ReactElement | ReactElement[];
+    children: (args: ProductCardHandlers) => JSX.Element;
     product: Product;
     className?: string;
     style?: CSSProperties;
-    onChange?: ( args: OnChangeArgs) => void;
+    onChange?: (args: OnChangeArgs) => void;
     value?: number;
+    initialValues?: InitialValues;
 }
 
-export const ProductCard = ({ children, product, className, style, onChange, value }: Props) => {
-
-    const { counter, handleMinus, handleAdd } = useProduct( { onChange, product, value } );
+export const ProductCard = ({
+    children,
+    product,
+    className,
+    style,
+    onChange,
+    value,
+    initialValues,
+}: Props) => {
+    const {
+        counter,
+        handleMinus,
+        handleAdd,
+        maxCounter,
+        isMaxCountReached,
+        reset,
+    } = useProduct({
+        onChange,
+        product,
+        value,
+        initialValues,
+    });
 
     return (
         <Provider
@@ -28,9 +53,18 @@ export const ProductCard = ({ children, product, className, style, onChange, val
                 handleMinus,
                 handleAdd,
                 product,
+                maxCounter,
             }}>
             <div style={style} className={`${styles.productCard} ${className}`}>
-                {children}
+                {children({
+                    product,
+                    count: counter,
+                    isMaxCountReached,
+                    maxCount: maxCounter,
+                    handleMinus,
+                    handleAdd,
+                    reset,
+                })}
             </div>
         </Provider>
     );

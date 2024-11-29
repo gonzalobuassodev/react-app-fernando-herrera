@@ -13,6 +13,7 @@ export interface ProductContextProps {
     handleMinus: () => void;
     handleAdd: () => void;
     product: Product;
+    maxCounter: number;
 }
 
 export interface ProductCardHookProps {
@@ -26,4 +27,19 @@ export interface ProductCardHookProps {
 export interface OnChangeArgs {
     product: Product;
     count: number;
+}
+
+export interface InitialValues {
+    count: number;
+    maxCount: number;
+}
+
+export interface ProductCardHandlers {
+    count: number;
+    isMaxCountReached: boolean;
+    maxCount?: number;
+    product: Product;
+    handleMinus: () => void;
+    handleAdd: () => void;
+    reset: () => void;
 }
