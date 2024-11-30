@@ -1,0 +1,65 @@
+[
+	{
+		"type": "input",
+		"name": "firstName",
+		"placeholder": "Firstname",
+		"label": "First Name",
+		"value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "This field is required"
+            },
+            {
+                "type": "minLength",
+                "value": 5
+            }
+        ]
+	},
+	{
+        "type": "input",
+		"name": "lastName",
+		"placeholder": "Lastname",
+		"label": "Last Name",
+		"value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "This field is required"
+            }
+        ]
+	},
+	{
+		"type": "email",
+		"name": "email",
+		"placeholder": "Email",
+		"label": "Email",
+		"value": "",
+        "validations": [
+            {
+                "type": "isEmail",
+                "message": "Invalid email address"
+            }
+        ]
+	},
+	{
+		"type": "select",
+		"name": "favoriteGame",
+		"label": "Favorite Game",
+		"value": "",
+		"options": [
+			{
+				"id": 1,
+				"label": "Super Smash Bros"
+			},
+			{
+				"id": 2,
+				"label": "Mario Kart"
+			},
+			{
+				"id": 3,
+				"label": "Zelda"
+			}
+		]
+	}
+]
